@@ -1,9 +1,25 @@
 # Ansible log analyzer
 
-Analyzes the runtime of Ansible steps.
+Quick and dirty script to analyze the runtime of Ansible steps.
 
 ## Getting Started
 
+Expected Ansible logs are in the following format. This is the default log format of logs downloaded from GitHub actions.
+
+```
+2023-11-21T05:16:25.1702815Z TASK [Gathering Facts] *********************************************************
+2023-11-21T05:16:28.5211031Z ok: [tr-ubuntu1]
+2023-11-21T05:16:28.5211713Z ok: [wato2-ubuntu1]
+2023-11-21T05:16:28.5212152Z ok: [derek3-ubuntu1]
+2023-11-21T05:16:28.5212703Z ok: [thor-ubuntu1]
+2023-11-21T05:16:28.5213089Z ok: [trpro-ubuntu1]
+2023-11-21T05:16:28.5213591Z ok: [delta-ubuntu1]
+2023-11-21T05:16:28.5214401Z TASK [users : Create a temporary build directory] ******************************
+2023-11-21T05:16:28.8440982Z ok: [delta-ubuntu1 -> localhost]
+...
+```
+
+Run the following:
 ```bash
 python3 print_durations.py <path_to_ansible_log>
 ```
